@@ -132,3 +132,33 @@ def test_kurs_yml_wirkt(tmp_path):
     assert '<Keyword Language="de"' not in md
     assert md.count('<Keyword Language="en">eins</Keyword><Keyword Language="en">zwei</Keyword>') == 1
     assert "il_0_lm_777" in md
+
+
+def test_bibliothek_dict_und_dateiliste(tmp_path):
+    """Bibliotheksnutzung: Dateiliste in fester Reihenfolge, Kurs aus Dict, h1_teilen=False."""
+    from md2ilias import kurs_aus_dict
+
+    b = tmp_path / "b.md"
+    a = tmp_path / "a.md"
+    b.write_text("# Zweites\n\n## Seite\n\nText\n\n# Noch eine H1\n\nmehr\n", encoding="utf-8")
+    a.write_text("# Erstes\n\n## Seite\n\nText\n", encoding="utf-8")
+    kurs = kurs_aus_dict(
+        {"titel": "T", "zeitstempel": 1767225600, "quell_id": 42, "strikt": True,
+         "seiten_auslassen": ["Lehrtext"], "bildordner": ["bilder"]},
+        basis=tmp_path,
+    )
+    assert kurs.basis == tmp_path.resolve() and kurs.strikt and kurs.quell_id == 42
+    r = bauen([b, a], tmp_path / "o", kurs, h1_teilen=False)
+    assert r.report["package_root"] == "1767225600__0__lm_42"
+    assert r.report["chapters"] == 2
+    lm = next(v for k, v in lies_zip(r.zip_pfad).items()
+              if k.endswith("LearningModule/set_1/export.xml")).decode()
+    assert re.findall(r"<Type>st</Type><Title>(.*?)</Title>", lm) == ["Zweites", "Erstes"]
+    assert (tmp_path / "o" / "report.json").is_file()
+
+
+def test_kurs_aus_dict_unbekannter_schluessel():
+    from md2ilias import kurs_aus_dict
+
+    with pytest.raises(KonfigurationsFehler):
+        kurs_aus_dict({"gibtsnicht": 1})

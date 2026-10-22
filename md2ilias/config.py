@@ -42,12 +42,11 @@ SCHLUESSEL = {
 }
 
 
-def lade_kurs(pfad: Path | None) -> Kurs:
-    if pfad is None:
-        return Kurs()
-    if not pfad.is_file():
-        raise KonfigurationsFehler(f"kurs.yml nicht gefunden: {pfad}")
-    daten = yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}
+def kurs_aus_dict(daten: dict, basis: Path | None = None) -> Kurs:
+    """Baut ein ``Kurs``-Objekt aus einem Dict (dieselben Schlüssel und Prüfungen wie kurs.yml).
+
+    ``basis`` ist der Ordner, gegen den relative ``bildordner`` aufgelöst werden.
+    """
     if not isinstance(daten, dict):
         raise KonfigurationsFehler("kurs.yml muss ein YAML-Objekt (Schlüssel: Wert) enthalten.")
     unbekannt = sorted(set(daten) - SCHLUESSEL)
@@ -56,7 +55,7 @@ def lade_kurs(pfad: Path | None) -> Kurs:
             "Unbekannte Schlüssel in kurs.yml: " + ", ".join(unbekannt)
             + ". Erlaubt: " + ", ".join(sorted(SCHLUESSEL))
         )
-    kurs = Kurs(basis=pfad.resolve().parent)
+    kurs = Kurs(basis=Path(basis).resolve() if basis is not None else None)
     for schluessel, wert in daten.items():
         if wert is None:
             continue
@@ -77,6 +76,15 @@ def lade_kurs(pfad: Path | None) -> Kurs:
     if kurs.sprache and len(kurs.sprache) > 8:
         raise KonfigurationsFehler("sprache erwartet einen Sprachcode wie 'de' oder 'en'.")
     return kurs
+
+
+def lade_kurs(pfad: Path | None) -> Kurs:
+    if pfad is None:
+        return Kurs()
+    if not pfad.is_file():
+        raise KonfigurationsFehler(f"kurs.yml nicht gefunden: {pfad}")
+    daten = yaml.safe_load(pfad.read_text(encoding="utf-8")) or {}
+    return kurs_aus_dict(daten, basis=pfad.resolve().parent)
 
 
 BEISPIEL_KURS_YML = """\

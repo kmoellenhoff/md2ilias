@@ -90,6 +90,34 @@ ergebnis = bauen("kurs.md", "build", lade_kurs("kurs.yml"))
 print(ergebnis.zip_pfad, ergebnis.report["befunde"])
 ```
 
+## Als Bibliothek verwenden
+
+md2ilias lässt sich aus eigenem Python-Code aufrufen, etwa aus einem Build-Skript, das
+Kapiteldateien und Einstellungen selbst zusammenstellt (kein `kurs.yml` nötig):
+
+```python
+from pathlib import Path
+from md2ilias import bauen, kurs_aus_dict
+
+kurs = kurs_aus_dict({
+    "titel": "Mein Kurs", "beschreibung": "...", "sprache": "de", "autor": "Name",
+    "schlagwoerter": [], "quell_id": 100001, "zeitstempel": 1767225600,
+    "bildordner": ["/pfad/zu/bildern"],        # relativ: gegen basis= aufgelöst
+    "seiten_auslassen": ["Trennseite"], "strikt": True,
+}, basis=Path("."))
+kapitel = [Path("kap/01.md"), Path("kap/02.md")]   # Reihenfolge = Kapitelreihenfolge
+ergebnis = bauen(kapitel, "build", kurs, h1_teilen=False)
+print(ergebnis.zip_pfad, ergebnis.report_pfad, ergebnis.report["befund_anzahl"])
+```
+
+* `kurs_aus_dict` akzeptiert dieselben Schlüssel wie `kurs.yml` (alternativ `Kurs(...)` direkt).
+* `bauen(eingaben, ausgabe, kurs, h1_teilen=...)` nimmt Dateien (in der angegebenen
+  Reihenfolge) und/oder Ordner. Mit `h1_teilen=False` ergibt jede Datei genau ein Kapitel.
+* Ergebnis: `ergebnis.zip_pfad`, `ergebnis.report_pfad` und `ergebnis.report` (dasselbe wie
+  `report.json`). Das ZIP und `report.json` liegen im Ausgabeordner.
+* Mit festem `zeitstempel` und `quell_id` ist der Dateiname reproduzierbar.
+* Für volle Kontrolle stehen `sammle_quellen` und `baue` ebenfalls bereit.
+
 ## Eingabe
 
 * **Eine `.md`-Datei:** `# Überschrift` beginnt ein Kapitel, `## Überschrift` eine Seite.
