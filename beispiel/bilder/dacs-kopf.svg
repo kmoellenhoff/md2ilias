@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="320" height="320" viewBox="0 0 320 320">
+  <rect width="320" height="320" fill="#e8f1e0"/>
+  <circle cx="90" cy="95" r="26" fill="#2b2b2b"/>
+  <circle cx="230" cy="95" r="26" fill="#2b2b2b"/>
+  <ellipse cx="160" cy="160" rx="95" ry="88" fill="#d9d9d9"/>
+  <path d="M105 70 Q125 150 118 245 L146 245 Q150 150 138 70 Z" fill="#2b2b2b"/>
+  <path d="M215 70 Q195 150 202 245 L174 245 Q170 150 182 70 Z" fill="#2b2b2b"/>
+  <circle cx="125" cy="150" r="9" fill="#ffffff"/>
+  <circle cx="195" cy="150" r="9" fill="#ffffff"/>
+  <circle cx="127" cy="151" r="4" fill="#111111"/>
+  <circle cx="193" cy="151" r="4" fill="#111111"/>
+  <ellipse cx="160" cy="205" rx="20" ry="13" fill="#111111"/>
+  <path d="M138 232 Q160 250 182 232" fill="none" stroke="#111111" stroke-width="4" stroke-linecap="round"/>
+  <rect x="120" y="278" width="80" height="30" rx="8" fill="#2b2b2b"/>
+  <text x="160" y="300" font-family="sans-serif" font-size="20" font-weight="bold" fill="#ffffff" text-anchor="middle">DACS</text>
+</svg>

@@ -1,0 +1,2 @@
+# Optional: SVG-Rasterung ohne rsvg-convert (z. B. unter Windows)
+cairosvg>=2.7

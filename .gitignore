@@ -1,0 +1,10 @@
+.venv/
+venv/
+build/
+__pycache__/
+*.pyc
+*.egg-info/
+.pytest_cache/
+*.zip
+!tests/**/*.zip
+!beispiel/fertig/1792681542__0__lm_100001.zip

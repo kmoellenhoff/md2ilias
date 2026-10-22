@@ -1,0 +1,28 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "md2ilias"
+version = "0.1.0"
+description = "Markdown zu importfertigem ILIAS-Lernmodul-ZIP (ILIAS 9.20)"
+readme = "README.md"
+requires-python = ">=3.11"
+license = "EUPL-1.2"
+license-files = ["LICENSE", "NOTICE"]
+authors = [{name = "Klaus Möllenhoff"}]
+dependencies = ["PyYAML>=6.0"]
+
+[project.optional-dependencies]
+svg = ["cairosvg>=2.7"]
+test = ["pytest>=7"]
+
+[project.scripts]
+md2ilias = "md2ilias.cli:main"
+
+[tool.setuptools]
+packages = ["md2ilias"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

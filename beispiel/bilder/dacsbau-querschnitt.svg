@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="420" viewBox="0 0 720 420">
+  <rect width="720" height="420" fill="#8a6a4a"/>
+  <rect width="720" height="90" fill="#cfe8f7"/>
+  <rect y="90" width="720" height="14" fill="#6fae4f"/>
+  <g stroke="#3b2a1a" stroke-width="22" stroke-linecap="round" fill="none">
+    <line x1="120" y1="100" x2="120" y2="215"/>
+    <line x1="360" y1="100" x2="360" y2="255"/>
+    <line x1="600" y1="100" x2="600" y2="215"/>
+    <line x1="205" y1="262" x2="270" y2="290"/>
+    <line x1="515" y1="262" x2="450" y2="290"/>
+  </g>
+  <g fill="#3b2a1a">
+    <ellipse cx="360" cy="305" rx="115" ry="55"/>
+    <ellipse cx="120" cy="250" rx="85" ry="42"/>
+    <ellipse cx="600" cy="250" rx="85" ry="42"/>
+  </g>
+  <g font-family="sans-serif" font-size="20" fill="#f4ead8" text-anchor="middle">
+    <text x="360" y="312">Wohnkammer</text>
+    <text x="120" y="257">Vorrat</text>
+    <text x="600" y="257">Schlafen</text>
+  </g>
+  <g font-family="sans-serif" font-size="16" fill="#1c2b36" text-anchor="middle">
+    <text x="120" y="52">Notausgang</text>
+    <text x="360" y="52">Haupteingang</text>
+    <text x="600" y="52">Lüftung</text>
+  </g>
+</svg>

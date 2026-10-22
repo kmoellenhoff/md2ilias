@@ -1,0 +1,130 @@
+{
+  "title": "Der DACS und seine Nachbarn im Wald",
+  "package_root": "1792681542__0__lm_100001",
+  "zip": "1792681542__0__lm_100001.zip",
+  "mode": "md2ilias",
+  "chapters": 3,
+  "pages": 12,
+  "media_objects": 4,
+  "missing_images": [],
+  "images": [
+    {
+      "source": "bilder/dacs-kopf.png",
+      "file": "001-dacs-kopf.png",
+      "conversion": "original",
+      "display_width": 320,
+      "display_height": 320,
+      "caption": "",
+      "alt": "Stilisierter DACS-Kopf mit schwarz-weißem Gesicht",
+      "found": true
+    },
+    {
+      "source": "bilder/dacsbau-querschnitt.svg",
+      "file": "002-dacsbau-querschnitt.png",
+      "conversion": "svg-to-png",
+      "display_width": 720,
+      "display_height": 420,
+      "caption": "Querschnitt eines Dacsbaus: Drei Zugänge, drei Kammern, keine Sackgassen.",
+      "alt": "Querschnitt eines Dacsbaus mit Wohnkammer, Vorrat, Schlafkammer und drei Zugängen",
+      "found": true
+    },
+    {
+      "source": "bilder/bau-kompetenz.svg",
+      "file": "003-bau-kompetenz.png",
+      "conversion": "svg-to-png",
+      "display_width": 640,
+      "display_height": 360,
+      "caption": "Bau-Kompetenz im Vergleich (erfundene Punkte, rein zum Vergnügen).",
+      "alt": "Balkendiagramm der Bau-Kompetenz: DACS 95, Fuchs 60, Hase 35",
+      "found": true
+    },
+    {
+      "source": "bilder/dacs-kopf.svg",
+      "file": "004-dacs-kopf.png",
+      "conversion": "svg-to-png",
+      "display_width": 320,
+      "display_height": 320,
+      "caption": "",
+      "alt": "Der Sieger der Formel: ein DACS",
+      "found": true
+    }
+  ],
+  "table_count": 1,
+  "tables": [
+    {
+      "rows": 5,
+      "columns": 4,
+      "max_cell_length": 23,
+      "ragged_rows_normalized": false
+    }
+  ],
+  "math_leak_count": 0,
+  "math_leaks": [],
+  "quality_issue_count": 0,
+  "quality_findings": {
+    "math_placeholders": [],
+    "link_placeholders": [],
+    "unresolved_internal_links": [],
+    "visible_varepsilon": [],
+    "markdown_images": [],
+    "markdown_table_separators": [],
+    "visible_horizontal_rules": []
+  },
+  "exercise_count": 1,
+  "exercises": [
+    {
+      "exercise": "Aufgabe 1",
+      "source_page_original": "Übung",
+      "solution_page": "Lösung zu Aufgabe 1",
+      "link_key_solution": "exercise-1-solution",
+      "link_key_source": "exercise-1-source"
+    }
+  ],
+  "internal_link_count": 4,
+  "quiz_count": 3,
+  "quizzes": [
+    {
+      "title": "**Wer gräbt den tiefsten Bau?**",
+      "type": "single_choice",
+      "answers": 3,
+      "correct_answers": 1,
+      "qref": "il_0_qst_930000"
+    },
+    {
+      "title": "**Welche Kammer liegt im Zentrum des Baus?**",
+      "type": "single_choice",
+      "answers": 3,
+      "correct_answers": 1,
+      "qref": "il_0_qst_930001"
+    },
+    {
+      "title": "**Was berechnet die Formel mit dem Ellipsoid?**",
+      "type": "single_choice",
+      "answers": 3,
+      "correct_answers": 1,
+      "qref": "il_0_qst_930002"
+    }
+  ],
+  "raw_quiz_checkbox_count": 0,
+  "copage_ampersand_protection_count": 4,
+  "validation": {
+    "members": 25,
+    "top_level": "1792681542__0__lm_100001"
+  },
+  "warnings": [],
+  "audit": {
+    "gesamt": 4,
+    "klassen": {
+      "open": 1,
+      "single_choice": 3
+    },
+    "ausgabe": {
+      "native_question": 3,
+      "text_exercise_with_solution": 1
+    },
+    "zu_pruefen": 0,
+    "datei": "audit/exercise-classification.md"
+  },
+  "befund_anzahl": 0,
+  "befunde": []
+}
